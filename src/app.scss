@@ -1,0 +1,109 @@
+@import './styles/reset-scss/';
+@import './styles/colors.scss';
+@import './styles/sizes.scss';
+@import './styles/typography.scss';
+
+
+body{
+    font-family: 'Manrope', sans-serif;
+}
+
+h1 {
+	font-size: 32px;
+	font-family: 'Corben', cursive;
+	color: $primary-color-5
+}
+
+h2 {
+	font-size: 24px;
+	font-family: 'Corben', cursive;
+	color: $primary-color-5
+}
+
+h3 {
+	font-size: 16px;
+	font-family: 'Corben', cursive;
+	color: $primary-color-5
+}
+
+// .login {
+// 	// display: flex;
+// 	// flex-direction: column;
+// }
+
+.signin-signup {
+	border: solid;
+	margin: 2em;
+	padding: 2em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.login, .signup{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		h3{
+			justify-self: center;
+			font-size: 32px;
+			padding-bottom: 1em;
+		}
+		form{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-bottom: 1em;
+		}
+		input{
+			width: 300px;
+			margin: .5em;
+			padding: .5em;
+		}
+		.submit{
+			width: 300px;
+		}
+	}
+}
+
+.navbar {
+	padding: 2em;
+	background-color: $red-1;
+	.link{
+		padding-right: 20px;
+		text-decoration: none;
+		font-weight: 800;
+		color: $grey-9;
+	}
+	.link:hover{
+		text-decoration: underline;
+	}
+
+}
+
+.dashboard {
+	height: 100vh;
+	background-color: $red-2;
+	color: $red-1;
+	.announcements {
+		padding: 2em;
+		margin: 4vh;
+		background-color: $grey-9;
+		height: 20vh;
+	}
+
+	.birthday-container {
+		padding: 2em;
+		margin: 4vh;
+		background-color: $grey-9;
+		height: 20vh;
+	}
+
+	.new-birthday {
+		padding: 2em;
+		margin: 4vh;
+		background-color: $grey-9;
+		height: 20vh;
+	}
+}
+
+
+

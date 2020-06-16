@@ -12,11 +12,13 @@ import SignupForm from './SignupForm';
     }
 
      render() {
+        const { isLogin } = this.state;
+        const { setFriends, setIsLoggedIn } = this.props; 
         return(
-            <div>
-                {this.state.isLogin ? <LoginForm /> : <SignupForm /> }
+            <div className="signin-signup">
+                {isLogin ? <LoginForm setIsLoggedIn={setIsLoggedIn} setFriends={setFriends} /> : <SignupForm /> }
                 <button onClick={this.toggleForms}>
-                    {this.state.isLogin ? "Need to Signup?" : "Need to Login?"}
+                    {isLogin ? "Need to Signup?" : "Need to Login?"}
                 </button>
             </div>
         )

@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function BirthdayCard({myFriend}) {
+  console.log("friends are in the card", myFriend)
   return (
     <div className="birthday-card">
       <h3>birthday-card</h3>
