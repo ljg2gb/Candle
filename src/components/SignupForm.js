@@ -1,31 +1,57 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-export default function SignupForm() {
-    const [name, setName] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [email, setEmail] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState('')
+const usersURL = 'http://localhost:3000/users'
 
-    const handleForm = (event) => {
-        setName(event.target.value)
-        setUsername(event.target.value)
-        setPassword(event.target.value)
-        setEmail(event.target.value)
-        setPhoneNumber(event.target.value)
+export default class SignupForm extends Component {
+    state = {
+      name: '',
+      email: '',
+      password: '',
+      phone_number: ''
     }
 
-  return (
-    <div className="login-form">
-        <h3>Sign Up</h3>
-        <form onChange={handleForm}>
-            <input type="text" name="name" value={name} placeholder="name"/>
-            <input type="text" name="username" value={username} placeholder="username"/>
-            <input type="password" name="password" value={password} placeholder="password"/>
-            <input type="text" name="email" value={email} placeholder="email"/>
-            <input type="text" name="phoneNumber" value={phoneNumber} placeholder="phone number"/>
-            <input type="submit" value="submit" />
-        </form>
-    </div>
-  );
+    redirectToDashboard = () => {
+      if(localStorage.getItem('token'))
+        return <Redirect to='/' />
+
+    }
+
+    handleChange = (event) => {
+      const { name, value } = event.target;
+      this.setState({ [name]: value })
+    }
+
+    handleSubmit = (event) => {
+      event.preventDefault()
+
+      fetch(usersURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({user: this.state})
+        })
+          .then(response => response.json()) 
+          .then(result => {
+            localStorage.setItem("token", result.token)
+          })
+          .then(this.redirectToDashboard)
+    }
+
+    render() {
+      const { name, email, password, phone_number } = this.state;
+      return (
+        <div className="signup-form">
+            <h3>Signup</h3>
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" name="name" value={name} placeholder="name" onChange={this.handleChange} />
+                <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
+                <input type="text" name="email" value={email} placeholder="email" onChange={this.handleChange}/>
+                <input type="text" name="phone_number" value={phone_number} placeholder="phone number" onChange={this.handleChange}/>
+                <input type="submit" value="signup" />
+            </form>
+        </div>
+      );
+    } 
 }
