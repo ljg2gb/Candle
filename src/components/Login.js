@@ -1,17 +1,17 @@
-import React from 'react';
-import Navbar from './Navbar';
+import React, { Component } from 'react';
 import Authenticate from './Authenticate';
-// import LoginForm from './LoginForm';
-// import SignupForm from './SignupForm';
+// import { render } from 'node-sass';
 
-export default function Login({setFriends, setIsLoggedIn}) {
-  return (
-    <div className='login'>
-        <Navbar />
-        <Authenticate setIsLoggedIn={setIsLoggedIn} setFriends={setFriends} />
-        {/* <LoginForm />
-        <SignupForm /> */}
-     
-    </div>
-  );
-}
+export default class Login extends Component {
+
+  componentDidMount(){
+    localStorage.removeItem('token')
+  }
+  render() {
+    return (
+      <div className='login'>
+          <Authenticate login={this.props.login} setFriends={this.props.setFriends} />
+      </div>
+    );
+  }
+} 

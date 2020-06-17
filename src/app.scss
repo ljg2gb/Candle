@@ -109,10 +109,12 @@ h3 {
 				display: flex;
 				flex-flow: row wrap;
 				.birthday-card {
+					width: 300px;
 					background-color: $red-1;
-					color: white;
+					color: $primary-color-5;
 					padding: 1em;
 					margin: 1em;
+					line-height: 2rem;
 				}
 			}
 		}

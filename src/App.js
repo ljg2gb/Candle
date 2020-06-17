@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import { Switch, Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
+import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
 import './app.scss';
@@ -7,47 +8,89 @@ import './app.scss';
 const loginURL = "http://localhost:3000/login"
 const profileURL = "http://localhost:3000/profile"
 
-export default class App extends Component {
+class App extends Component {
 
   state = {
     friends: [],
-    isLoggedIn: false
+    user: {},
+    user_id: '',
+    user_name: '',
+    user_email: '',
+    alert: ''
   }
 
   setFriends = (friends) => {
-    this.setState({ friends })
+    this.setState({
+      friends: [...this.state.friends, friends]
+    })
   }
 
-  setIsLoggedIn = () => {
-    return localStorage.token ? this.setState({isLoggedIn: true}) : this.setState({isLoggedIn: false})
+  validateUser = () => {
+    const token = localStorage.token
+    if(token) {
+      fetch(profileURL, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
+      })
+      .then(response => response.json())
+      // .then(response => console.log(response))
+      .then(response => {
+        this.setState({
+          user: response,
+          friends: response.friends
+        })
+      })
+    }
   }
-
 
   componentDidMount = () => {
-    this.setIsLoggedIn()
-    // if(localStorage.token){
-    //   fetch(profileURL, {
-    //     method: "GET",
-    //     headers: {
-    //       "Authorization": `Bearer ${localStorage.token}`
-    //     }
-    //     .then(response => response.json())
-    //     .then(console.log)
-    //   })
-    // }
+    this.validateUser()
   }
-  
+
+  login = (user) => {
+    fetch(loginURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user)
+    })
+    .then(response => response.json())
+    .then(response => {
+      if(response.message){
+        this.setState({alert: response.message})
+      } else {
+        localStorage.setItem('token', response.token)
+        this.setState({
+          friends: response.friends,
+          user_id: response.user_id,
+          user_name: response.user_name,
+          user_email: response.user_email
+        })
+      }
+    })
+    .then(() => this.props.history.push('/'))
+  }
+    
   render() {
-    console.log(this.state.isLoggedIn)
     return (
       <div className="App">
-      <Login setIsLoggedIn={this.setIsLoggedIn} setFriends={this.setFriends} />
-      <Dashboard  setFriends={this.setFriends} myFriends={this.state.friends} />
-        {/* <Switch>
-          <Route path='/login' render={(routerProps) => <Login setFriends={this.setFriends} {...routerProps}/> } />
-          <Route  exact path='/' render={(routerProps) => <Dashboard myFriends={this.state.friends} {...routerProps}/> } />
-        </Switch> */}
+        <PrivateRoute
+          exact
+          path='/'
+          setFriends={this.setFriends}
+          myFriends={this.state.friends}
+        />
+        <Route path='/login' render={(routerProps) => <Login {...routerProps} login={this.login} setFriends={this.setFriends}/> } />
+        {/* <Login setIsLoggedIn={this.setIsLoggedIn} setFriends={this.setFriends} /> */}
+        {/* <Dashboard  setFriends={this.setFriends} myFriends={this.state.friends} /> */}
       </div>
     );
   }
+
 }
+
+export default withRouter(App);

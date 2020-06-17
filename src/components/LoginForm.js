@@ -17,28 +17,28 @@ export default class LoginForm extends Component {
 
     handleSubmit = (event) => {
       event.preventDefault()
+      this.props.login(this.state)
 
-      fetch(loginURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(this.state)
-        })
-          .then(response => {
-            if (response.status === 200) {
-            this.setState({error: ""})
-            return response.json() 
-          } else if (response.status === 401) {
-            throw new Error("Something is wrong with the username or password")
-          }
-          }) 
-          .then(result => {
-            localStorage.setItem("token", result.token);
-            this.props.setFriends(result.friends);
-            this.props.setIsLoggedIn();
-          })
-          .catch(error => this.setState({ error: error.message }))
+      // fetch(loginURL, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify(this.state)
+      //   })
+      //     .then(response => {
+      //       if (response.status === 200) {
+      //       this.setState({error: ""})
+      //       return response.json() 
+      //     } else if (response.status === 401) {
+      //       throw new Error("Something is wrong with the username or password")
+      //     }
+      //     }) 
+      //     .then(result => {
+      //       localStorage.setItem("token", result.token);
+      //       this.props.setFriends(result.friends);
+      //     })
+      //     .catch(error => this.setState({ error: error.message }))  
     }
 
     render() {
