@@ -4,7 +4,7 @@ import BirthdayForm from './BirthdayForm';
 export default function NewBirthday({setFriends}) {
   return (
     <div className="new-birthday">
-        <p>new-birthday</p>
+        <h3>Add a Friend's Birthday</h3>
         <BirthdayForm setFriends={setFriends} />
     </div>
   );

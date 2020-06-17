@@ -25,16 +25,16 @@ export default class App extends Component {
 
   componentDidMount = () => {
     this.setIsLoggedIn()
-    if(localStorage.token){
-      fetch(profileURL, {
-        method: "GET",
-        headers: {
-          "Authorization": `Bearer ${localStorage.token}`
-        }
-        .then(response => response.json())
-        .then(console.log)
-      })
-    }
+    // if(localStorage.token){
+    //   fetch(profileURL, {
+    //     method: "GET",
+    //     headers: {
+    //       "Authorization": `Bearer ${localStorage.token}`
+    //     }
+    //     .then(response => response.json())
+    //     .then(console.log)
+    //   })
+    // }
   }
   
   render() {
