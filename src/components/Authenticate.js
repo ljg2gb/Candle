@@ -17,7 +17,7 @@ import SignupForm from './SignupForm';
         return(
             <div className="signin-signup">
                 {isLogin ? <LoginForm login={login} setIsLoggedIn={setIsLoggedIn} setFriends={setFriends} /> : <SignupForm /> }
-                <button onClick={this.toggleForms}>
+                <button className='button' onClick={this.toggleForms}>
                     {isLogin ? "Need to Signup?" : "Need to Login?"}
                 </button>
             </div>

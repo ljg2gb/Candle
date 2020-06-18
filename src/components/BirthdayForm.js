@@ -34,7 +34,7 @@ export default class BirthdayForm extends Component {
     const currentDay = currentDate.getDate() 
     let birthYear = 0
     
-    if ( (birthMonth < currentMonth) || ((birthMonth == currentMonth) && ((birthDay < currentDay) || (birthDay == currentDay) ))) {
+    if ( (birthMonth < currentMonth) || ((birthMonth === currentMonth) && ((birthDay < currentDay) || (birthDay === currentDay) ))) {
       birthYear = (currentYear - age)
     } else {
       birthYear = (currentYear - age - 1)
@@ -82,7 +82,7 @@ export default class BirthdayForm extends Component {
               <input type="number" min="1" max="110" name="age" value={age} placeholder="age" onChange={this.handleChange}/>
               <input type="number" min="1" max="12" name="birthday_month" value={birthday_month} placeholder="12" onChange={this.handleChange}/>
               <input type="number" min="1" max="31" name="birthday_day" value={birthday_day} placeholder="22" onChange={this.handleChange}/>
-              <input type="submit" value="Add Birthday!"/>
+              <input className='button' type="submit" value="Add Birthday!"/>
           </form>
       </div>
     );

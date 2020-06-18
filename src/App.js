@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
-import Dashboard from './components/Dashboard'
 import './app.scss';
 
 const loginURL = "http://localhost:3000/login"

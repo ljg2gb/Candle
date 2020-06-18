@@ -8,7 +8,7 @@ export default function BirthdayContainer({myFriends}) {
 
   return (
     <div className="birthday-container">
-        <h3>All the birthdays</h3>
+        <h3>Birthdays</h3>
         <div className='birthday-cards'>
           {displayFriendBirthday()}
         </div>

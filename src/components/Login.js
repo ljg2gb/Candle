@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Authenticate from './Authenticate';
+import Welcome from './Welcome';
 // import { render } from 'node-sass';
 
 export default class Login extends Component {
@@ -10,6 +11,7 @@ export default class Login extends Component {
   render() {
     return (
       <div className='login'>
+          <Welcome />
           <Authenticate login={this.props.login} setFriends={this.props.setFriends} />
       </div>
     );
