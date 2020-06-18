@@ -25,8 +25,31 @@ h2 {
 
 h3 {
 	font-size: 24px;
+	padding: .5em 0;
+	// line-height: 2em;
 	font-family: 'Corben', cursive;
 	color: $primary-color-5
+}
+
+h4 {
+	font-size: 24px;
+	font-family: 'Manrope', sans-serif;
+	font-weight: 800;
+	line-height: 2.5em;
+	color: rgb(28, 168, 115);
+}
+
+h5 {
+	font-size: 32px;
+	font-family: 'Manrope', sans-serif;
+	font-weight: 800;
+	line-height: 2.5em;
+	color: $primary-color-5;
+}
+
+label {
+	color: $primary-color-5;
+	font-weight: 800;
 }
 
 .button {
@@ -39,53 +62,65 @@ h3 {
 	background-color: $primary-color-5;
 }
 
+.submit-button {
+	border-radius: 2px;
+	border-style: none;
+	box-shadow: 0 2px 2px $primary-color-1;
+	width: 200px;
+	padding: .5em;
+	color:white;
+	background-color: rgb(28, 168, 115);
+}
+
 .login {
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	.welcome {
-		margin-top: 100px;
+		margin-top: 50px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		line-height: 4em;
 	}
-}
-
-.signin-signup {
-	margin: 1.5em;
-	padding: 2em;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	.login, .signup{
+	.signin-signup {
+		padding: 1em;
 		display: flex;
-		align-items: center;
 		flex-direction: column;
-		h3{
-			justify-self: center;
-			font-size: 32px;
-			padding-bottom: 1em;
-		}
-		form{
+		align-items: center;
+		.login-form, .signup{
 			display: flex;
-			flex-direction: column;
 			align-items: center;
-			padding-bottom: 1em;
-		}
-		input{
-			width: 300px;
-			margin: .5em;
-			padding: .5em;
+			flex-direction: column;
+			h3{
+				justify-self: center;
+				font-size: 32px;
+				padding-bottom: .5em;
+			}
+			form{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding-bottom: 1em;
+			}
+			input{
+				width: 300px;
+				margin: .5em;
+				padding: .5em;
+			}
 		}
 	}
 }
 
+
 .navbar {
+	background: rgb(255,217,206);
+	background: linear-gradient(270deg, rgba(255,217,206,1) 5%, rgba(255,173,173,1) 55%);
 	display: flex;
-	align-items: baseline;
+	align-items: center;
 	justify-content: space-between;
-	padding: 2em;
+	padding: .5em 2em;
 	background-color: $red-2;
 	.link{
 		padding-right: 20px;
@@ -114,12 +149,12 @@ h3 {
 		padding: 2em;
 		margin: 2em 2em 0 2em;
 		background-color: $red-0;
-		height: 20vh;
+		min-height: 20vh;
 	}
 	.dashboard-flex{
 		display: flex;
 		.birthday-container {
-			width: 75%;
+			width: 65%;
 			padding: 2em;
 			margin: 2em 0 2em 2em;
 			background-color: $red-0;
@@ -127,36 +162,55 @@ h3 {
 			.birthday-cards {
 				margin: 1em 0;
 				display: flex;
-				flex-flow: row wrap;
+				flex-flow: column;
 				.birthday-card {
-					text-align: center;
-					border-radius: 2px;
-					width: 300px;
-					background-color: $primary-color-6;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					// text-align: center;
+					border-radius: 3px;
+					width: 100%;
+					height: 6em;
+					background: rgb(255,164,153);
+background: linear-gradient(270deg, rgba(255,164,153,1) 0%, rgba(255,173,173,1) 42%);
 					color: $red-0;
-					padding: 1em;
-					margin: 0 1em 1em 0;
+					font-weight: 800;
+					padding: 1em 2.5em;
+					margin: 0 2em 2em 0;
 					line-height: 2rem;
+					button {
+						box-shadow: 0 2px 2px $red-5;
+						border-style: none;
+						border-radius: 2px;
+						background-color: rgb(240, 86, 39);
+						color: $red-1;
+						// align-self: flex-end;
+						margin: 0 1.5em;
+						padding: .5em;
+					}
 				}
 			}
 		}
 	
 		.new-birthday {
-			width: 25%;
+			width: 35%;
 			background-color: $red-0;
 			margin: 2em;
 			padding: 2em;
-			display: flex;
-			flex-flow: column nowrap;
-			align-items: center;
+			// display: flex;
+			// flex-flow: column nowrap;
+			// align-items: center;
 			h3 {
 				text-align: center;
 			}
 			.birthday-form {
+				display: flex;
+				flex-flow: column;
+				align-items: center;
 				padding: 1em 1em;
 				input {
 					width: 100px;
-					margin: .5em;
+					margin: .5em 0 1em 0;
 					padding: .5em;
 				}
 			}

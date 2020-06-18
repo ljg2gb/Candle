@@ -65,7 +65,7 @@ export default class BirthdayCard extends Component {
   render() {
     return (
       <div className="birthday-card">
-        <p>{`${this.props.myFriend.name} is turning ${parseInt(this.state.age) + 1} on ${`${this.state.birthMonth}/${this.state.birthDay}`}.`}</p>
+        <p>{`${this.props.myFriend.name} is turning ${parseInt(this.state.age) + 1} on ${`${this.state.birthMonth}/${this.state.birthDay}`}. `}</p>
         <button onClick={this.handleClick}>Delete from list</button>
       </div>
     );

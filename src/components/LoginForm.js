@@ -21,8 +21,8 @@ export default class LoginForm extends Component {
     render() {
       const { name, email, password, phone_number } = this.state;
       return (
-        <div className="login">
-            <h3>Login</h3>
+        <div className="login-form">
+            <h5>LOGIN</h5>
             <form onSubmit={this.handleSubmit}>
                 <input type="text" name="name" value={name} placeholder="name" onChange={this.handleChange} />
                 <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>

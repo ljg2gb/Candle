@@ -76,13 +76,17 @@ export default class BirthdayForm extends Component {
   render() {
     const { name, age, birthday_month, birthday_day } = this.state;
     return (
-      <div className="birthday-form">
-          <form onSubmit={this.handleSubmit}>
-              <input name="name" value={name} placeholder="name" onChange={this.handleChange}/>
-              <input type="number" min="1" max="110" name="age" value={age} placeholder="age" onChange={this.handleChange}/>
-              <input type="number" min="1" max="12" name="birthday_month" value={birthday_month} placeholder="12" onChange={this.handleChange}/>
-              <input type="number" min="1" max="31" name="birthday_day" value={birthday_day} placeholder="22" onChange={this.handleChange}/>
-              <input className='button' type="submit" value="Add Birthday!"/>
+      <div>
+          <form className="birthday-form" onSubmit={this.handleSubmit}>
+              <label>Name</label>
+              <input name="name" value={name} placeholder="Jane" onChange={this.handleChange}/>
+              <label>Age</label>
+              <input type="number" min="1" max="110" name="age" value={age} placeholder="30" onChange={this.handleChange}/>
+              <label>Birth Month</label>
+              <input type="number" min="1" max="12" name="birthday_month" value={birthday_month} placeholder="1" onChange={this.handleChange}/>
+              <label>Birth Day</label>
+              <input type="number" min="1" max="31" name="birthday_day" value={birthday_day} placeholder="30" onChange={this.handleChange}/>
+              <input className='submit-button' type="submit" value="Add Birthday!"/>
           </form>
       </div>
     );
