@@ -1,9 +1,9 @@
 import React from 'react';
 import BirthdayCard from './BirthdayCard';
 
-export default function BirthdayContainer({myFriends}) {
+export default function BirthdayContainer({myFriends, deletePermanently}) {
   const displayFriendBirthday = () => {
-   return myFriends.map(friend => <BirthdayCard key={friend.id} myFriend={friend} />)
+   return myFriends.map(friend => <BirthdayCard key={friend.id} deletePermanently={deletePermanently} myFriend={friend} />)
   }
 
   return (

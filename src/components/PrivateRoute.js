@@ -6,7 +6,7 @@ export default function PrivateRoute(props) {
     return( 
         localStorage.token ? 
         <Route {...props} render={(routerProps) => (
-            <Dashboard setFriends={props.setFriends} myFriends={props.myFriends} />
+            <Dashboard deletePermanently={props.deletePermanently} setFriends={props.setFriends} myFriends={props.myFriends} />
         )} /> : 
         <Redirect to="/login" /> 
     )

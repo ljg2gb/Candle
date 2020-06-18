@@ -4,6 +4,7 @@ import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
 import './app.scss';
 
+const friendsURL = "http://localhost:3000/friends/"
 const loginURL = "http://localhost:3000/login"
 const profileURL = "http://localhost:3000/profile"
 
@@ -22,6 +23,20 @@ class App extends Component {
     this.setState({
       friends: [...this.state.friends, friends]
     })
+  }
+
+  deleteFromFriends = (friendId) => {
+    this.setState({
+      friends: this.state.friends.filter(friend => friend.id !== friendId)
+    })
+  }
+
+  deletePermanently = (friendId) => {
+    fetch(friendsURL + friendId, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(this.deleteFromFriends(friendId))
   }
 
   validateUser = () => {
@@ -82,6 +97,7 @@ class App extends Component {
           path='/'
           setFriends={this.setFriends}
           myFriends={this.state.friends}
+          deletePermanently={this.deletePermanently}
         />
         <Route path='/login' render={(routerProps) => <Login {...routerProps} login={this.login} setFriends={this.setFriends}/> } />
         {/* <Login setIsLoggedIn={this.setIsLoggedIn} setFriends={this.setFriends} /> */}

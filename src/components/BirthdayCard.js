@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+const friendsURL = "http://localhost:3000/friends/"
+
 export default class BirthdayCard extends Component {
 
   state = {
@@ -10,6 +12,18 @@ export default class BirthdayCard extends Component {
   }
   componentDidMount(){
     this.handleTime(this.props.myFriend)
+  }
+
+  handleClick = () => {
+    this.props.deletePermanently(this.props.myFriend.id)
+  }
+
+  deleteFriend = (friend) => {
+    fetch(`${friendsURL}${friend.id}`, {
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(console.log)
   }
 
   handleTime = (friend) => {
@@ -26,13 +40,15 @@ export default class BirthdayCard extends Component {
         birthDay: parseInt(split[2])
       })
       if ( (this.state.birthMonth < currentMonth) || ((this.state.birthMonth === currentMonth) && ((this.state.birthDay < currentDay) || (this.state.birthDay === currentDay) ))) {
+        console.log("option1")
+        console.log(currentYear - (parseInt(split[0])))
         this.setState({
-          age: (currentYear - this.state.birthYear)
+          age: (currentYear - (parseInt(split[0])))
         })
       } 
       else {
         this.setState({
-          age: (currentYear - this.state.birthYear - 1)
+          age: (currentYear - (parseInt(split[0])) - 1)
         })
       }
     } 
@@ -49,7 +65,8 @@ export default class BirthdayCard extends Component {
   render() {
     return (
       <div className="birthday-card">
-        <p>{`${this.props.myFriend.name} is turning ${this.state.age + 1} on ${`${this.state.birthMonth}/${this.state.birthDay}`}.`}</p>
+        <p>{`${this.props.myFriend.name} is turning ${parseInt(this.state.age) + 1} on ${`${this.state.birthMonth}/${this.state.birthDay}`}.`}</p>
+        <button onClick={this.handleClick}>Delete from list</button>
       </div>
     );
   }
