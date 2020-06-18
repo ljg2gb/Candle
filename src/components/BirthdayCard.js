@@ -54,7 +54,7 @@ export default class BirthdayCard extends Component {
     } 
     else {
       this.setState({
-        age: friend.age,
+        age: parseInt(friend.age) + 1,
         birthYear: friend.birth_year,
         birthMonth: friend.birthday_month,
         birthDay: friend.birthday_day,
@@ -65,8 +65,8 @@ export default class BirthdayCard extends Component {
   render() {
     return (
       <div className="birthday-card">
-        <p>{`${this.props.myFriend.name} is turning ${parseInt(this.state.age) + 1} on ${`${this.state.birthMonth}/${this.state.birthDay}`}. `}</p>
-        <button onClick={this.handleClick}>Delete from list</button>
+        <p>{`${this.props.myFriend.name} is turning ${parseInt(this.state.age)} on ${`${this.state.birthMonth}/${this.state.birthDay}`}. `}</p>
+        <button onClick={this.handleClick}>Delete</button>
       </div>
     );
   }

@@ -43,13 +43,13 @@ export default class SignupForm extends Component {
       const { name, email, password, phone_number } = this.state;
       return (
         <div className="signup">
-            <h5>SIGNUP</h5>
+            <h5>Signup</h5>
             <form onSubmit={this.handleSubmit}>
                 <input type="text" name="name" value={name} placeholder="name" onChange={this.handleChange} />
                 <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
                 <input type="text" name="email" value={email} placeholder="email" onChange={this.handleChange}/>
                 <input type="text" name="phone_number" value={phone_number} placeholder="phone number" onChange={this.handleChange}/>
-                <input className='button' type="submit" value="signup" />
+                <input className='button' type="submit" value="Signup" />
             </form>
         </div>
       );

@@ -11,24 +11,28 @@ body, .button, input {
     font-family: 'Manrope', sans-serif;
 }
 
+.bolder {
+	font-family: 'Corben', cursive;
+	font-size: 20px;
+}
+
 h1 {
 	font-size: 60px;
 	font-family: 'Corben', cursive;
-	color: $primary-color-5
+	color: $red-5;
 }
 
 h2 {
 	font-size: 32px;
 	font-family: 'Corben', cursive;
-	color: $primary-color-5
+	color: $red-4;
 }
 
 h3 {
 	font-size: 24px;
 	padding: .5em 0;
-	// line-height: 2em;
 	font-family: 'Corben', cursive;
-	color: $primary-color-5
+	color: $primary-color-9
 }
 
 h4 {
@@ -44,32 +48,36 @@ h5 {
 	font-family: 'Manrope', sans-serif;
 	font-weight: 800;
 	line-height: 2.5em;
-	color: $primary-color-5;
+	color: $red-5;
 }
 
 label {
-	color: $primary-color-5;
+	color: $primary-color-7;
 	font-weight: 800;
+}
+
+
+.submit-button {
+	border-radius: 2px;
+	border-style: none;
+	box-shadow: 0 2px 2px $primary-color-2;
+	width: 200px;
+	padding: .5em;
+	color: $primary-color-1;
+	font-weight: 800;
+	background-color: rgb(86, 132, 216);
 }
 
 .button {
 	border-radius: 2px;
 	border-style: none;
-	box-shadow: 0 2px 2px $primary-color-1;
+	box-shadow: 0 2px 2px $primary-color-2;
 	width: 200px;
 	padding: .5em;
-	color: $primary-color-1;
-	background-color: $primary-color-5;
-}
-
-.submit-button {
-	border-radius: 2px;
-	border-style: none;
-	box-shadow: 0 2px 2px $primary-color-1;
-	width: 200px;
-	padding: .5em;
-	color:white;
-	background-color: rgb(28, 168, 115);
+	color: $red-5;
+	font-weight: 800;
+	background: rgb(255,164,153);
+	background: linear-gradient(270deg, rgba(255,164,153,1) 0%, rgba(255,173,173,1) 42%);
 }
 
 .login {
@@ -97,6 +105,7 @@ label {
 				justify-self: center;
 				font-size: 32px;
 				padding-bottom: .5em;
+				color: $red-5;
 			}
 			form{
 				display: flex;
@@ -115,8 +124,10 @@ label {
 
 
 .navbar {
-	background: rgb(255,217,206);
-	background: linear-gradient(270deg, rgba(255,217,206,1) 5%, rgba(255,173,173,1) 55%);
+	box-shadow: 0 2px 2px $red-4;
+	border-bottom: 2px solid $primary-color-9;
+	background: rgb(255,164,153);
+	background: linear-gradient(270deg, rgba(255,164,153,1) 0%, rgba(255,173,173,1) 42%);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -126,34 +137,46 @@ label {
 		padding-right: 20px;
 		text-decoration: none;
 		font-weight: 800;
-		color: $primary-color-5;
+		color: $red-0;
 	}
 	.link:hover{
 		text-decoration: underline;
+		color: $red-5;
 	}
 	p {
 		font-size: 36px;
 		padding-right: 20px;
 		text-decoration: none;
 		font-weight: 800;
-		color: $red-1;
+		color: $red-0;
 	}
 
 }
 
 .dashboard {
 	min-height: 100vh;
-	background-color: $red-1;
-	color: $red-1;
+	background: rgb(255,164,153);
+	background: linear-gradient(270deg, rgba(255,164,153,1) 0%, rgba(255,173,173,1) 42%);
 	.announcements {
+		box-shadow: 0 2px 2px $red-4;
+		border-style: solid;
+		border-width: 2px;
+		border-color: $primary-color-9;
 		padding: 2em;
 		margin: 2em 2em 0 2em;
 		background-color: $red-0;
 		min-height: 20vh;
+		h4, h3 {
+			color: $red-5;
+		}
 	}
 	.dashboard-flex{
 		display: flex;
 		.birthday-container {
+			box-shadow: 0 2px 2px $red-4;
+			border-style: solid;
+			border-width: 2px;
+			border-color: $primary-color-9;
 			width: 65%;
 			padding: 2em;
 			margin: 2em 0 2em 2em;
@@ -164,27 +187,28 @@ label {
 				display: flex;
 				flex-flow: column;
 				.birthday-card {
+					border: 2px solid $primary-color-9;
+					box-shadow: 0 2px 2px $red-2;
 					display: flex;
 					justify-content: space-between;
 					align-items: center;
-					// text-align: center;
 					border-radius: 3px;
 					width: 100%;
 					height: 6em;
 					background: rgb(255,164,153);
-background: linear-gradient(270deg, rgba(255,164,153,1) 0%, rgba(255,173,173,1) 42%);
+					background: linear-gradient(270deg, rgba(255,164,153,1) 0%, rgba(255,173,173,1) 42%);
 					color: $red-0;
 					font-weight: 800;
-					padding: 1em 2.5em;
-					margin: 0 2em 2em 0;
+					padding: 1em 2em;
+					margin: 0 1em 2em 0;
 					line-height: 2rem;
 					button {
-						box-shadow: 0 2px 2px $red-5;
-						border-style: none;
+						box-shadow: 0 2px 2px $red-4;
 						border-radius: 2px;
-						background-color: rgb(240, 86, 39);
-						color: $red-1;
-						// align-self: flex-end;
+						border-style: none;
+						background-color: $red-1;
+						color: $red-5;
+						font-weight: 800;
 						margin: 0 1.5em;
 						padding: .5em;
 					}
@@ -193,13 +217,14 @@ background: linear-gradient(270deg, rgba(255,164,153,1) 0%, rgba(255,173,173,1) 
 		}
 	
 		.new-birthday {
+			box-shadow: 0 2px 2px $red-4;
+			border-style: solid;
+			border-width: 2px;
+			border-color: $primary-color-9;
 			width: 35%;
 			background-color: $red-0;
 			margin: 2em;
 			padding: 2em;
-			// display: flex;
-			// flex-flow: column nowrap;
-			// align-items: center;
 			h3 {
 				text-align: center;
 			}

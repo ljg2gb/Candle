@@ -42,7 +42,7 @@ export default class Announcements extends Component {
       const monthText = this.state.months[this.state.currentMonth -1]
       return (
         friends.map((friend) => {
-         return <h4>{`${friend.name} has a birthday in ${monthText}.`} </h4>
+         return <h4>{`It's ${monthText}!`} <b className='bolder' >{friend.name}</b> {`has a birthday this month.`} </h4>
         })
       )
     } else {
@@ -54,7 +54,6 @@ export default class Announcements extends Component {
   render() {
     return (
       <div className="announcements">
-          <h3>Upcoming Birthdays:</h3>
           {this.birthdaysThisMonth(this.props.myFriends)}
       </div>
     );
