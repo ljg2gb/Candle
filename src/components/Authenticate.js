@@ -13,10 +13,10 @@ import SignupForm from './SignupForm';
 
      render() {
         const { isLogin } = this.state;
-        const { setFriends, setIsLoggedIn, login } = this.props; 
+        const { setFriends, setIsLoggedIn, login, alertMessage } = this.props; 
         return(
             <div className="signin-signup">
-                {isLogin ? <LoginForm login={login} setIsLoggedIn={setIsLoggedIn} setFriends={setFriends} /> : <SignupForm /> }
+                {isLogin ? <LoginForm login={login} alertMessage={alertMessage} setIsLoggedIn={setIsLoggedIn} setFriends={setFriends} /> : <SignupForm /> }
                 <button className='button' onClick={this.toggleForms}>
                     {isLogin ? "Need to Signup?" : "Need to Login?"}
                 </button>

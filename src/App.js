@@ -50,7 +50,7 @@ class App extends Component {
         }
       })
       .then(response => response.json())
-      // .then(response => console.log(response))
+
       .then(response => {
         this.setState({
           user: response,
@@ -79,6 +79,7 @@ class App extends Component {
       } else {
         localStorage.setItem('token', response.token)
         this.setState({
+          alert: '',
           friends: response.friends,
           user_id: response.user_id,
           user_name: response.user_name,
@@ -86,7 +87,10 @@ class App extends Component {
         })
       }
     })
-    .then(() => this.props.history.push('/'))
+    .then(response => {
+      if(this.state.alert === '') {
+      this.props.history.push('/')
+      }})
   }
     
   render() {
@@ -99,7 +103,7 @@ class App extends Component {
           myFriends={this.state.friends}
           deletePermanently={this.deletePermanently}
         />
-        <Route path='/login' render={(routerProps) => <Login {...routerProps} login={this.login} setFriends={this.setFriends}/> } />
+        <Route path='/login' render={(routerProps) => <Login {...routerProps} login={this.login} alertMessage={this.state.alert} setFriends={this.setFriends}/> } />
         {/* <Login setIsLoggedIn={this.setIsLoggedIn} setFriends={this.setFriends} /> */}
         {/* <Dashboard  setFriends={this.setFriends} myFriends={this.state.friends} /> */}
       </div>

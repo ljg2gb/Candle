@@ -12,7 +12,7 @@ export default class Login extends Component {
     return (
       <div className='login'>
           <Welcome />
-          <Authenticate login={this.props.login} setFriends={this.props.setFriends} />
+          <Authenticate login={this.props.login} alertMessage={this.props.alertMessage} setFriends={this.props.setFriends} />
       </div>
     );
   }
