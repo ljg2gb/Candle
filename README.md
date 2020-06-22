@@ -6,6 +6,10 @@ This was a four-day-long project built with a React JS frontend and a Ruby on Ra
 
 I created this project to learn React JS and work on my Sass styling. This was also my first project that dealt with time: the app is built to calculate and store date-of-birth from user data and recalculate age on the front-end so the current age is always displayed correctly. The biggest challenge I overcame from this project was implementing Auth and React private routes to protect and display user-specific information.
 
+![](/Candle_demo.gif)
+
+---
+
 ## How the app works
 * To run the app, first fork and clone down this repo to your local device. 
 * Note you will also need to clone down the backend repo at 

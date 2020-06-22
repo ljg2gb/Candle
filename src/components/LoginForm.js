@@ -25,9 +25,9 @@ export default class LoginForm extends Component {
             <h5>Login</h5>
             <form onSubmit={this.handleSubmit}>
                 <input type="text" name="name" value={name} placeholder="name" onChange={this.handleChange} />
-                <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
                 <input type="text" name="email" value={email} placeholder="email" onChange={this.handleChange}/>
-                <input type="text" name="phone_number" value={phone_number} placeholder="phone number" onChange={this.handleChange}/>
+                <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
+                <input type="hidden" name="phone_number" value={phone_number} placeholder="phone number" onChange={this.handleChange}/>
                 <input  className='button' type="submit" value="Login" />
                 { this.props.alertMessage ? <p>{this.props.alertMessage}</p> : null }
             </form>
