@@ -1,8 +1,8 @@
-# Candle - a Birthday Reminder App
+# Candle - A Birthday Reminder App
 
-This was a 4-day-long project built with a React JS frontend and a Ruby on Rails backend.
+I'm terrible at remembering my friends' birthdays so I built Candle to help me rememeber. It allows the user to add their friend's birthday and gives reminders about who has a birthday this month. I hope to eventaully encorporate push notifications and automated emails to make the platform more user-friendly when it's deployed. 
 
-I am really bad at remembering my friends' birthdays so I built an app to help me rememeber. It allows the user to add their friend's birthday and gives reminders about who has a birthday this month. I hope to eventaully encorporate push notifications and automated emails to make the platform more user-friendly when it's deployed. 
+This was a four-day-long project built with a React JS frontend and a Ruby on Rails backend.
 
 I created this project to learn React JS and work on my Sass styling. This was also my first project that dealt with time: the app is built to calculate and store date-of-birth from user data and recalculate age on the front-end so the current age is always displayed correctly. The biggest challenge I overcame from this project was implementing Auth and React private routes to protect and display user-specific information.
 
@@ -11,7 +11,7 @@ I created this project to learn React JS and work on my Sass styling. This was a
 * Note you will also need to clone down the backend repo at 
    * https://github.com/ljg2gb/Candle_birthday_reminder_appBE
 
-* Once you have the backend servers running (run `rails s`), you can go into the frontend repo you cloned down, and in another terminal tab type `npm install` and then `npm start`. This will prompt the application to start. 
+* Once you have the backend server running (run `rails s`), you can go into the frontend repo you cloned down, and in another terminal tab type `npm install` and then `npm start`. This will prompt the application to start. 
 
 
 * From there you can navigate through the website seen in the video above 
