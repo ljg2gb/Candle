@@ -13,7 +13,7 @@ I created this project to learn React JS and work on my Sass styling. This was a
 ## How the app works
 * To run the app, first fork and clone down this repo to your local device. 
 * Note you will also need to clone down the backend repo at 
-   * https://github.com/ljg2gb/Candle_birthday_reminder_appBE
+   * https://github.com/ljg2gb/Candle_BE
 
 * Once you have the backend server running (run `rails s`), you can go into the frontend repo you cloned down, and in another terminal tab type `npm install` and then `npm start`. This will prompt the application to start. 
 
