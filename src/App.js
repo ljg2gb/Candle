@@ -4,9 +4,9 @@ import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
 import './app.scss';
 
-const friendsURL = "http://localhost:3000/friends/"
-const loginURL = "http://localhost:3000/login"
-const profileURL = "http://localhost:3000/profile"
+const friendsURL = "https://candle-birthday-reminders.herokuapp.com/friends/"
+const loginURL = "https://candle-birthday-reminders.herokuapp.com/login/"
+const profileURL = "https://candle-birthday-reminders.herokuapp.com/profile/"
 
 class App extends Component {
 

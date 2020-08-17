@@ -7,7 +7,6 @@ export default class Announcements extends Component {
     months: []
   }
 
-
   componentDidMount() {
     this.setCurrentDate()
   }
